@@ -175,7 +175,7 @@ def main():
 
     st.subheader('**Para começar você pode baixar os datasets pré-processados [aqui](https://github.com/guireis1/Codenation-Final-Project/tree/master/data)!**')
     st.markdown('### 1- Insira primeiro o arquivo **"data_preprocess.csv"**')
-    file1= st.file_uploader('Upload data_preprocess.csv',type='csv')
+    #file1= st.file_uploader('Upload data_preprocess.csv',type='csv')
     #st.markdown('Ou se preferir, o dataset pode ter o upload automatico. ')
     #button_automatico = st.button('Upload automatico')
     #file1=''
@@ -186,7 +186,7 @@ def main():
     
 
     st.markdown('### 2- Insira o arquivo **"market.csv"**')
-    file2= st.file_uploader('Upload market.csv',type='csv')
+    #file2= st.file_uploader('Upload market.csv',type='csv')
     #st.markdown('Ou se preferir, o dataset pode ter o upload automatico. ')
     #button_automatico1 = st.button('Upload automatico!')
     
@@ -200,11 +200,12 @@ def main():
     st.markdown(' *Obs.: Caso você não tenha um portifólio para usar, escolha um [desses](https://github.com/guireis1/Codenation-Final-Project/tree/master/data). *')
     file3= st.file_uploader('Upload clientes.csv',type='csv')
 
-    if (file3 and file2 and file3) is not None:
-        
-        market = pd.DataFrame(readcsv(file2))
+    if file3 is not None:
+        market = pd.read_csv('data/market.csv')
+        market_pre = pd.read_csv('data/data_preprocess.csv')
+        #market = pd.DataFrame(readcsv(file2))
         #market= pd.read_csv(file2)
-        market_pre = pd.DataFrame(readcsv(file1))
+        #market_pre = pd.DataFrame(readcsv(file1))
         #market_pre = pd.read_csv(file1)
         port = pd.DataFrame(readcsv(file3))  
         st.text('Loading data...done!')
