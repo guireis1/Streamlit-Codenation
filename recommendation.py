@@ -173,36 +173,15 @@ def main():
     st.subheader('**Você está no sistema de recomendação de clientes**')
     st.markdown('O sistema recomendará novos clientes baseado em comparações com os seus atuais clientes de forma customizada a partir das características desejadas.')
 
-    st.subheader('**Para começar você pode baixar os datasets pré-processados [aqui](https://github.com/guireis1/Codenation-Final-Project/tree/master/data)!**')
-    st.markdown('### 1- Insira primeiro o arquivo **"data_preprocess.csv"**')
-    #file1= st.file_uploader('Upload data_preprocess.csv',type='csv')
-    #st.markdown('Ou se preferir, o dataset pode ter o upload automatico. ')
-    #button_automatico = st.button('Upload automatico')
-    #file1=''
-    #if button_automatico:
-     #   file1 = 'https://raw.githubusercontent.com/guireis1/Codenation-Final-Project/master/data/data_preprocess.csv'
-    
-    #st.markdown('*Obs.: Upload automatico é mais lento!*')
-    
-
-    st.markdown('### 2- Insira o arquivo **"market.csv"**')
-    #file2= st.file_uploader('Upload market.csv',type='csv')
-    #st.markdown('Ou se preferir, o dataset pode ter o upload automatico. ')
-    #button_automatico1 = st.button('Upload automatico!')
-    
-    #if button_automatico1:
-     #   file2= 'https://raw.githubusercontent.com/guireis1/Codenation-Final-Project/master/data/market.csv'
-    
-
-    st.markdown('*Obs.: Upload automatico é mais lento!*')
-    
-    st.markdown('### 3- Agora para finalizar, precisamos que você nos forneça o **portifólio de seus clientes!**')
+    st.markdown('###  Precisamos que você nos forneça o **portifólio de seus clientes!**')
     st.markdown(' *Obs.: Caso você não tenha um portifólio para usar, escolha um [desses](https://github.com/guireis1/Codenation-Final-Project/tree/master/data). *')
     file3= st.file_uploader('Upload clientes.csv',type='csv')
 
     if file3 is not None:
-        market = pd.read_csv('data/market.csv')
+
+        
         market_pre = pd.read_csv('data/data_preprocess.csv')
+        market = pd.read_csv('data/market.csv')
         #market = pd.DataFrame(readcsv(file2))
         #market= pd.read_csv(file2)
         #market_pre = pd.DataFrame(readcsv(file1))
@@ -212,9 +191,9 @@ def main():
 
 
         #Començando o processamento
-        market = pd.read_csv('market.csv')
-        market_pre = pd.read_csv('data_preprocess.csv')
-        port = pd.read_csv('data/estaticos_portfolio1.csv')  
+        #market = pd.read_csv('market.csv')
+        #market_pre = pd.read_csv('data_preprocess.csv')
+        #port = pd.read_csv('data/estaticos_portfolio1.csv')  
 
         market_pre.set_index('id',inplace=True)
         market.set_index(market_pre.index,inplace=True)
